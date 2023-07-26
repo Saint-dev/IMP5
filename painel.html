@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultas tokyo find</title>
+    <style>
+            body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .input-group {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .input-group input[type="text"],
+        .input-group select {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .input-group button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: red;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #resultado {
+
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        @media (max-width: 750px) {
+            .input-group {
+                flex-direction: column;
+            }
+            .container {
+                margin: 23px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tokyo find</h1>
+    <div class="input-group">
+        <input type="text" id="consultaInput" placeholder="Escolha uma consulta">
+        <select id="consultaSelect" onchange="atualizarInput()">
+            <option value="consultar-pni-sus">Consultar PNI SUS (CPF / CNS)</option>
+            <option value="consultar-telefone">Consultar Telefone</option>
+            <option value="consultar-nome">Consultar Nome</option>
+            <option value="consultar-cep">Consultar Moradores por CEP</option>
+            <option value="consultar-cpf-completa">Consultar CPF (Completa)</option>
+            <option value="consultar-cnpj-completa">Consultar CNPJ (Completa)</option>
+            <option value="consultar-placa-completa">Consultar Placa (Completa)</option>
+        </select>
+        <button onclick="consultarAPI()">Consultar</button>
+    </div>
+    <div id="resultado"></div>
+    </div>
+    
+
+    <script>
+        function atualizarInput() {
+          
+            const consultaInput = document.getElementById('consultaInput');
+        }
+
+        function consultarAPI() {
+            const cpf = document.getElementById('consultaInput').value;
+            const consulta = document.getElementById('consultaSelect').value;
+            const proxyUrl = 'http://localhost:3000/' + consulta + '?cpf=' + cpf;
+
+            fetch(proxyUrl)
+                .then(response => response.text())
+                .then(data => {
+                    // Aqui você pode manipular a resposta da API como desejar
+                    document.getElementById('resultado').textContent = data;
+                })
+                .catch(error => {
+                    console.error('Erro ao consultar API:', error);
+                    document.getElementById('resultado').textContent = 'Erro ao consultar a API. Verifique o console para mais informações.';
+                });
+        }
+    </script>
+</body>
+</html>

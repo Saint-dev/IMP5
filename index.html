@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Painel de Login</title>
+  <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./scr/css/login.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2 class="login-title">Painel de Login</h2>
+    <form id="login-form">
+      <label for="username">Usuário:</label>
+      <input type="text" id="username" required>
+      <label for="password">Senha:</label>
+      <input type="password" id="password" required>
+      <button type="submit">Entrar</button>
+    </form>
+    <div id="login-message"></div>
+  </div>
+
+  <script>
+function loadUsers(callback) {
+  // Use a função fetch para carregar o arquivo JSON
+  fetch("./users/dados.json")
+    .then((response) => response.json())
+    .then((data) => callback(data))
+    .catch((error) => console.error("Erro ao carregar usuários:", error));
+}
+
+function checkLogin(users, username, password) {
+  for (const user of users.usuarios) {
+    if (user.usuario.toLowerCase() === username.toLowerCase() && user.senha === password) {
+      return true;
+    }
+  }
+  return false;
+}
+
+document.getElementById("login-form").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const usernameInput = document.getElementById("username");
+  const passwordInput = document.getElementById("password");
+
+  const enteredUsername = usernameInput.value;
+  const enteredPassword = passwordInput.value;
+
+  loadUsers(function (users) {
+    // Verificar login
+    const isLoginValid = checkLogin(users, enteredUsername, enteredPassword);
+
+    if (isLoginValid) {
+      // Redirecionar para a página desejada após o login bem-sucedido
+      window.location.href = "painel.html";
+    } else {
+      const loginMessage = document.getElementById("login-message");
+      loginMessage.textContent = "Credenciais inválidas. Tente novamente.";
+      loginMessage.style.color = "red";
+    }
+
+    // Limpar os campos de login após a tentativa
+    usernameInput.value = "";
+    passwordInput.value = "";
+
+  });
+});
+  const mensagem = "Coe mano, vai tenta crackear?, Achou algum bug chama o criador no telegram @xSaintDev.";
+
+  // Enviar a mensagem para o console
+  console.log(mensagem);
+
+  </script>
+</body>
+</html>

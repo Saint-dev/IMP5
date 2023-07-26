@@ -1,0 +1,16 @@
+{
+  "name": "tokyo-central",
+  "version": "1.0.0",
+  "description": "consultas cpd",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "saint",
+  "license": "ISC",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.1"
+  }
+}

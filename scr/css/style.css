@@ -1,0 +1,275 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html{
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: black;
+	font-family: "Open Sans", sans-serif;
+	color: #444444;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	
+  font-family: "Raleway", sans-serif;
+}
+
+.logo {
+	color: red;
+}
+nav {
+	width: 100vw;
+	position: fixed;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+	height: 79px;
+	background-color: #000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 125px;
+}
+nav ul {
+	list-style: none;
+}
+nav ul li {
+	display: inline-block;
+}
+
+nav ul li a{
+	transition: 0.2s;
+	padding: 10px 10px;
+	text-decoration: none;
+	font-weight: 800;
+	color: white;
+}
+
+nav ul li a:hover {
+	color: red;
+}
+
+.container-header {
+	gap: 9px;
+	height: 110vh;
+	flex-direction: column;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.container-header h1 {
+	color: white;
+	line-height: 35px;
+	font-weight: 900;
+	font-size: 2.5rem;
+	text-align: center;
+}
+.container-header button {
+	transition: 0.7s;
+	border-radius: 6px;
+	background: rgb(2,0,36);
+background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,69,140,1) 100%);	color: white;
+	height: 49px;
+	width: 155px;
+	border: none;
+}
+.container-header button:hover {
+	color: black;
+	background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+}
+
+#planos {
+	margin: 23px;
+
+	background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 4%, rgba(19,1,37,1) 13%, rgba(121,9,45,1) 78%, rgba(131,71,114,1) 89%, rgba(189,60,190,1) 100%, rgba(155,95,223,1) 100%, rgba(0,212,255,1) 100%);
+	height: 50vh;
+}
+.container-card {
+	display: flex;
+	align-items: center;
+	height: 49vh;
+	justify-content: center;
+	gap: 23px;
+
+}
+.card {
+
+	text-align: center;
+
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+	transition: 0.4s;
+	padding-top: 55px;
+	color: #000;
+	border-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+	height: 285px;
+	width: 255px;
+	background-color: white;
+}
+.card h1 {
+	font-family: "Poppins";
+}
+
+.card:hover {
+	color: white;
+	background: rgb(195,34,34);
+background: linear-gradient(0deg, rgba(195,34,34,1) 30%, rgba(195,34,34,1) 39%, rgba(232,172,172,1) 85%, rgba(255,255,255,1) 100%);
+}
+
+.card button {
+	margin-top: 35px;
+	color: white;
+	border-radius: 6px;
+	width: 131px;
+	height: 55px;
+	border: none;
+	background-color: black;
+}
+
+
+#tela1 {
+	padding-top: 235px;
+	padding-left: 155px;
+	height: 70vh;
+}
+.container-tela1 {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+}
+.container-tela1 h1{
+
+	color: white;
+	font-size: 3rem;
+}
+.container-tela1 p{
+	text-anchor: start;
+	font-size: 1.5rem;
+}
+
+
+.container-tela1 img {
+	position: absolute;
+	width: 425px;
+	left: 62%;
+}
+
+#tela2 {
+	
+	padding-top: 155px;
+	padding-left: 755px;
+	height: 80vh;
+}
+.container-header {
+	visibility: hidden;
+}
+
+footer {
+	padding: 65px;
+	color: white;
+	height: 35vh;
+	background-color:#343541;
+}
+
+.container-footer {
+	gap: 155px;
+	display: flex;
+}
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+#ft2 {
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 9vh;
+}
+.container-ft2 {
+	align-items: center;
+  gap: 55px;
+	display: flex;
+
+}
+
+footer h2 {
+	color: red;
+}
+
+#imgs {
+	position: absolute;
+	width: 355px;
+	left: 15%
+}
+@media (max-width: 750px) {
+	#tela1 {
+		padding-left: 34px;
+		height: 100vh;
+	}
+	#tela2 {
+	padding-left: 55px;
+	height: 80vh;
+		height: 150vh;
+	}
+	.container-tela1 h1 {
+		padding-left: 1px;
+		font-size: 2rem;
+	}
+	img {
+		display: none ;
+	}
+	.container-tela1 {
+		align-items: center;
+		justify-content: center;
+		display: flex;
+		flex-direction: column;
+	}
+	.
+	.container-header h1 {
+		margin: 1px;
+	font-size: 1.6rem;
+}
+.container-header p{
+	padding-bottom: 23px;
+	text-align: center;
+}
+
+.container-footer {
+	flex-direction: column;
+}
+footer{
+	height: 55vh;
+}
+.container-card {
+	gap: 55px;
+	flex-direction: column;
+}
+
+#planos {
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	height: 95vh;
+}
+.card {
+	padding-top: 1px;
+	height: 155px;
+}
+.card button {
+	display: none;
+}
+}
