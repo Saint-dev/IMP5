@@ -9,7 +9,7 @@ app.use(express.json());
 
 // Configurar o cabeçalho para permitir que o site em 'http://127.0.0.1:8080' acesse o recurso
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
+  res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
